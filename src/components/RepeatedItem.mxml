@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:s="library://ns.adobe.com/flex/spark"
+				updateComplete="itemrenderer1_updateCompleteHandler(event)">
+
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+
+			protected function itemrenderer1_updateCompleteHandler(event:FlexEvent):void
+			{
+				if(data.currentValue < data.lastValue)
+				{
+					gradientColor.color = 0xff0000;
+				} else {
+					gradientColor.color = 0x00ff00;
+				}
+			}
+
+		]]>
+	</fx:Script>
+
+	
+	<s:states>
+		<s:State name="normal"/>			
+		<s:State name="hovered"/>
+		<s:State name="selected"/>
+	</s:states>
+	
+	<s:Rect width="110" height="22" y.normal="0.5" x.normal="0.5" id="rect1" x.hovered="1" y.hovered="1" x.selected="1" y.selected="1">
+		<s:fill>
+			<s:SolidColor id="fill" color.normal="0xFFFFFF" color.hovered="0xCEDBEF" color.selected="0xA8C6EE"/>
+		</s:fill>
+		<s:stroke.normal>
+			<s:SolidColorStroke weight="1" caps="none" miterLimit="4" joints="miter" color="#000000"/>
+		</s:stroke.normal>
+		<s:fill.normal>
+			<s:LinearGradient rotation="180">
+				<s:GradientEntry color="#000000" alpha="1" ratio="0"/>
+				<s:GradientEntry id="gradientColor" color="#FFFFFF" alpha="1" ratio="1"/>
+			</s:LinearGradient>
+		</s:fill.normal>
+	</s:Rect>
+	
+	<s:RichText text="{data.currentValue}" color="0x2b4381" x="4" y="6"/>
+	<s:transitions>
+		<s:Transition fromState="normal" toState="hovered" autoReverse="true">
+			<s:Parallel>
+				<s:Parallel target="{rect1}">
+					<s:Move autoCenterTransform="true" duration="0"/>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+	</s:transitions>
+	
+</s:ItemRenderer>

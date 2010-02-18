@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:d="http://ns.adobe.com/fxg/2008/dt"> 
+	
+	<fx:Metadata>
+		[HostComponent("spark.components.List")]
+	</fx:Metadata> 
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<!-- border/fill -->
+	<s:Rect x="0.5" y="0.5" width="126" id="rect1" height="126" alpha.disabled="0.5">
+		<s:stroke>
+			<s:SolidColorStroke color="0x5380D0" weight="1"/>
+		</s:stroke>
+		<s:fill>
+			<s:SolidColor color="0xFFFFFF" />
+		</s:fill>
+	</s:Rect>
+	
+	<!-- data group -->
+	<s:DataGroup id="dataGroup" 
+				 x="1" y="1" width="111" height="111" 
+				 itemRenderer="components.RepeatedItem"
+				 clipAndEnableScrolling="true"
+				 alpha.disabled="0.5" d:userLabel="Repeated Item">
+		<s:layout>
+			<s:VerticalLayout gap="0" />
+		</s:layout>
+	</s:DataGroup>
+	
+	<!-- scrollbars -->
+	<s:HScrollBar x="0" y="112" width="113" viewport="{dataGroup}" alpha.disabled="0.5" id="hscrollbar1"/>
+	<s:VScrollBar x="112" y="0" height="113" viewport="{dataGroup}" alpha.disabled="0.5" id="vscrollbar1"/>
+	<s:transitions>
+		<s:Transition fromState="normal" toState="disabled" autoReverse="true">
+			<s:Parallel>
+				<s:Parallel target="{rect1}">
+					<s:Fade duration="0"/>
+				</s:Parallel>
+				<s:Parallel target="{dataGroup}">
+					<s:Fade duration="0"/>
+				</s:Parallel>
+				<s:Parallel target="{hscrollbar1}">
+					<s:Fade duration="0"/>
+				</s:Parallel>
+				<s:Parallel target="{vscrollbar1}">
+					<s:Fade duration="0"/>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+	</s:transitions>
+	
+</s:Skin>

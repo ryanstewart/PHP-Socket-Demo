@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Graphic xmlns:ai="http://ns.adobe.com/ai/2009" xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" xmlns:d="http://ns.adobe.com/fxg/2008/dt" xmlns="http://ns.adobe.com/fxg/2008" xmlns:flm="http://ns.adobe.com/flame/2008" version="1.0">
+	<Group alpha="0.25" d:id="8" flm:knockout="false" ai:objID="6c54c2f0">
+		<Rect x="1" height="193" width="292" ai:objID="6c54c3e0">
+			<fill>
+				<LinearGradient rotation="270" scaleX="193.043" x="146.087" y="193.044">
+					<GradientEntry color="#8D8D8D" ratio="0"/>
+					<GradientEntry color="#787878" ratio="0.617977"/>
+					<GradientEntry color="#858585" ratio="0.629213"/>
+					<GradientEntry color="#7F7F7F" ratio="0.983146"/>
+				</LinearGradient>
+			</fill>
+		</Rect>
+		<Rect x="1" alpha="0.51" blendMode="screen" height="193" width="292" ai:objID="6c54b1d0">
+			<fill>
+				<LinearGradient rotation="270" scaleX="193.043" x="146.087" y="193.044">
+					<GradientEntry color="#6D6D6D" ratio="0"/>
+					<GradientEntry color="#4A4A4A" ratio="0.5" flm:midpoint="0.237287998199463"/>
+					<GradientEntry color="#6D6D6D" ratio="1"/>
+				</LinearGradient>
+			</fill>
+		</Rect>
+		<Rect x="1" alpha="0.7" blendMode="screen" height="193" width="292" ai:objID="6c54b770">
+			<fill>
+				<LinearGradient rotation="90" scaleX="193.044" x="146.087" y="0">
+					<GradientEntry alpha="0.77" color="#FFFFFF" ratio="0"/>
+					<GradientEntry alpha="0.65" color="#FFFFFF" ratio="0.203297" flm:midpoint="0.710525970458984"/>
+					<GradientEntry alpha="0.65" color="#FFFFFF" ratio="0.346154" flm:midpoint="0.611110992431641"/>
+					<GradientEntry alpha="0" color="#FFFFFF" ratio="0.510989" flm:midpoint="0.13"/>
+					<GradientEntry alpha="0.16" color="#1B1B1B" ratio="1"/>
+				</LinearGradient>
+			</fill>
+		</Rect>
+		<Rect x="0.5" y="0.5" height="193" width="292" ai:objID="6c536360">
+			<stroke>
+				<SolidColorStroke caps="none" color="#CCCCCC" joints="miter" miterLimit="1" weight="1"/>
+			</stroke>
+		</Rect>
+	</Group>
+</Graphic>

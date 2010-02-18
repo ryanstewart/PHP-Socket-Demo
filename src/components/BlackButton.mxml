@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark" xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:graphics="assets.graphics.*">
+	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<graphics:StockBackground x="0" y="0" height="26" width="90" id="graphic11"/>
+	<s:RichText y="7" color="#ffffff" fontFamily="Myriad Pro" fontSize="14" tabStops="S0 S50" text="(Label)" width="50" height="14" id="labelDisplay" x="6">
+		<s:filters>
+			<s:GlowFilter includeIn="over" blurX="6.0" blurY="6.0" color="#ffffff" inner="false" strength="2" alpha="1.0" quality="2" knockout="false"/>
+			<s:DropShadowFilter includeIn="down" blurX="4.0" hideObject="false" distance="4.0" blurY="4.0" inner="true" color="0x000000" strength="1" alpha="1.0" quality="2" knockout="false" angle="45.0"/>
+		</s:filters>
+	</s:RichText>
+</s:Skin>

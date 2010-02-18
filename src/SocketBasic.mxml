@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/halo" 
+			   minWidth="1024" minHeight="768" xmlns:mx1="library://ns.adobe.com/flex/mx">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import mx.controls.Alert;
+			
+			public var socket:Socket;
+			
+			[Bindable]
+			protected var arrStockData:ArrayCollection = new ArrayCollection();
+			
+			protected function btn_clickHandler(event:MouseEvent):void
+			{
+				socket = new Socket();
+				socket.addEventListener(SecurityErrorEvent.SECURITY_ERROR,onSecurityError);
+				socket.addEventListener(IOErrorEvent.IO_ERROR,onIOError);
+				socket.addEventListener(Event.CONNECT,onConnect);
+				socket.addEventListener(ProgressEvent.SOCKET_DATA,onProgressEvent);
+				socket.connect("127.0.0.1",1740);
+				
+			}
+			
+			protected function onSecurityError(event:SecurityErrorEvent):void
+			{
+				Alert.show(event.text);
+			}
+			
+			protected function onIOError(event:IOErrorEvent):void
+			{
+				Alert.show(event.text);
+			}
+
+			protected function onConnect(event:Event):void
+			{
+				btnConnected.label = "Connected";
+				btnConnected.enabled = false;
+			}
+			
+			protected function onProgressEvent(event:ProgressEvent):void
+			{
+				//Alert.show('on Progress');
+				var data:String = socket.readUTFBytes(socket.bytesAvailable);
+				if(Number(data) < Number(lblPrice.text))
+				{
+					lblPrice.setStyle("color","#ff0000");
+				} else {
+					lblPrice.setStyle("color","#00ff00");
+				}
+				lblPrice.text = data;
+				var lastValue:Number = arrStockData.length ? arrStockData[0].currentValue : 0;
+				arrStockData.addItemAt({currentValue:data,lastValue:lastValue},0);
+				trace('data recieved');
+			}
+
+			protected function btnQuit_clickHandler(event:MouseEvent):void
+			{
+				socket.close();
+			}
+
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Button id="btnConnected" click="btn_clickHandler(event)" label="Connect" height="26" width="90"  x="287" y="60"/>
+	<s:Button id="btnQuit" click="btnQuit_clickHandler(event)" label="Quit" height="26" width="90" x="385"  y="60"/>
+	<s:RichText id="lblPrice" color="0xFFFFFF" fontFamily="Myriad Pro" fontSize="60" kerning="on" lineHeight="120%" textAlign="center" whiteSpaceCollapse="preserve" x="129" y="160">
+	</s:RichText>
+	<s:List id="list" x="377" y="109" dataProvider="{arrStockData}" labelField="currentValue" />
+	<mx1:LineChart x="40" y="263" id="linechart1" 
+				  width="325" height="212" showDataTips="true"
+				  dataProvider="{arrStockData}" color="#000000">
+		<mx1:verticalAxis>
+			<mx1:LinearAxis maximum="35" minimum="25" displayName="Price" />
+		</mx1:verticalAxis>
+		<mx1:series>
+			<mx1:LineSeries displayName="Value" yField="currentValue" form="curve" />
+		</mx1:series>
+	</mx1:LineChart>
+</s:Application>

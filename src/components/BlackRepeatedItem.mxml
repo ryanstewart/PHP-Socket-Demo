@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ItemRenderer xmlns:s="library://ns.adobe.com/flex/spark" 
+				xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:ai="http://ns.adobe.com/ai/2009" 
+				xmlns:d="http://ns.adobe.com/fxg/2008/dt" 
+				width="100" height="43" 
+				xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" 
+				fc:manageBounds="false"
+				updateComplete="itemrenderer1_updateCompleteHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+
+			protected function itemrenderer1_updateCompleteHandler(event:FlexEvent):void
+			{
+				if(data.currentValue < data.lastValue)
+				{
+					this.currentState = "down";
+				} else {
+					this.currentState = "up";
+				}
+			}
+
+		]]>
+	</fx:Script>
+
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="down"/>
+	</s:states>
+	<s:Line ai:objID="6c54f350" x="0.5" xTo="99" y="41.5" id="line1">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="0xE6E6E6" joints="miter" miterLimit="4" scaleMode="normal" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Rect y="0.5" x="0.5" height="41" width="99" id="rect1" blendMode="multiply">
+		<s:fill>
+			<s:SolidColor color.up="#00ff00" color.down="#ff0000"/>
+		</s:fill>
+	</s:Rect>
+	<s:RichText color="0xFFFFFF" fontFamily="Myriad Pro" fontSize="21" d:id="4" kerning="on" lineHeight="120%" ai:objID="6c54f8b0" whiteSpaceCollapse="preserve" x="16" d:userLabel="26.45" text="{data.currentValue}" y="11" id="richtext1">
+	</s:RichText>
+</s:ItemRenderer>

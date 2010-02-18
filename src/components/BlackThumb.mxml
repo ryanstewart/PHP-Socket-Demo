@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark" xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:d="http://ns.adobe.com/fxg/2008/dt" xmlns:ai="http://ns.adobe.com/ai/2009" xmlns:flm="http://ns.adobe.com/flame/2008">
+	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<s:Rect height="24" d:id="7" ai:objID="6c5502b0" width="12" x="0.5" y="0.5">
+		<s:fill>
+			<s:LinearGradient scaleX="12.1738" x="0.5" y="12.2388">
+				<s:GradientEntry color="0xC4C6C8" flm:midpoint="0.507936973571777" ratio="0.005618"/>
+				<s:GradientEntry color="0x939598" flm:midpoint="0.561797981262207" ratio="0.35955"/>
+				<s:GradientEntry color="0xA7A9AC" ratio="0.651685"/>
+				<s:GradientEntry color="0xA9ABAE" ratio="0.865168"/>
+				<s:GradientEntry color="0xA7A9AC" ratio="1"/>
+				<s:GradientEntry color="0xD1D3D4" ratio="1"/>
+			</s:LinearGradient>
+		</s:fill>
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="0xE6E6E6" joints="miter" miterLimit="4" scaleMode="normal" weight="1"/>
+		</s:stroke>
+	</s:Rect>
+</s:Skin>

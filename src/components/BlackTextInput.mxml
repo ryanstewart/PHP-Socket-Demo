@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+		alpha.disabled="0.5" minWidth="128" minHeight="22">
+	
+	<fx:Metadata>
+		[HostComponent("spark.components.TextInput")]
+	</fx:Metadata> 
+	
+	<s:states>
+		<s:State name="normal"/>
+		<s:State name="disabled"/>
+	</s:states>
+	
+	<s:Rect x="0.5" y="0.5" height="21" width="127" height.normal="35" id="rect1">
+		<s:stroke>            
+			<s:SolidColorStroke color="0x5380D0" weight="1"/>
+		</s:stroke>
+		<s:fill>
+			<s:SolidColor color="0xFFFFFF" color.normal="#000000"/>
+		</s:fill>
+		<s:filters>
+			<s:GlowFilter includeIn="normal" blurX="6.0" blurY="6.0" color="#cccccc" inner="true" strength="1" alpha="1.0" quality="2" knockout="false"/>
+		</s:filters>
+	</s:Rect>
+	
+	<s:RichEditableText id="textDisplay" text="(Text)"	
+						x="1" width="126" heightInLines="1" color="0x2b4381"
+						paddingLeft="4" paddingTop="4"
+						paddingRight="4" paddingBottom="4" color.normal="#ffffff" fontSize.normal="25" fontFamily.normal="Myriad Pro" y.disabled="1" y.normal="1"/>
+	<s:transitions>
+		<s:Transition fromState="normal" toState="disabled" autoReverse="true">
+			<s:Parallel>
+				<s:Parallel target="{rect1}">
+					<s:Resize duration="0"/>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+	</s:transitions>
+	
+</s:Skin>
